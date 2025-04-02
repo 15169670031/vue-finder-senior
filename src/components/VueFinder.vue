@@ -37,7 +37,7 @@ import Explorer from '../components/Explorer.vue';
 import ContextMenu from '../components/ContextMenu.vue';
 import Statusbar from '../components/Statusbar.vue';
 import TreeView from '../components/TreeView.vue';
-import { menuItems as contextMenuItems } from '../utils/contextmenu.js';
+import { itemBundle,templateMap, menuItems as contextMenuItems } from '../utils/contextmenu.js';
 
 
 const emit = defineEmits(['select', 'update:path'])
@@ -113,6 +113,16 @@ const props = defineProps({
       }
     },
   },
+  // 文件夹 文件夹右键菜单
+  /*
+  * 输入示例
+  * [{ label: "解压", show: (item) => true, handler: (items) => { } }]
+  * */
+
+  menu: {
+    type: Array,
+    default: []
+  },
   onError: {
     type: Function,
     default: null,
@@ -127,7 +137,28 @@ const props = defineProps({
   },
 });
 
+// 将自定义点击按钮添加
+props.menu.forEach( r => {
+  let bundle = itemBundle([{
+    key: r.label,
+    title: ({t}) => {
+      return t(r.label) || r.label // 按钮标签
+    },
+    action: r.handler // 按钮点击事件
+  }])
+  if(r?.show) bundle[0].show = r?.show // 判断菜单是否需要显示
+  // 自定义按钮位置（原本的按钮可能位置比较靠前，设置需要往后延续）
+  if(r?.index) {
+    props.contextMenuItems.splice(r.index + 9,0,...bundle)
+  } else {
+    props.contextMenuItems.push(
+        ...bundle
+    )
+  }
+})
+
 // the object is passed to all components as props
+// 对象作为道具传递给所有组件
 const app = ServiceContainer(props, inject('VueFinderOptions'));
 provide('ServiceContainer', app);
 const {setStore} = app.storage;

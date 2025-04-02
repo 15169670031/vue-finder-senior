@@ -107,7 +107,7 @@ export class SimpleItem {
  * @param {SimpleItemOptions} options
  * @returns {Item[]}
  */
-function itemBundle(templates, options) {
+export function itemBundle(templates, options) {
   return templates.map((template) => {
     return new SimpleItem(template.title, template.action, template.link, {
       ...options,
@@ -117,7 +117,7 @@ function itemBundle(templates, options) {
 }
 
 /** @type {Record<string, ItemTemplate>} */
-const templateMap = {
+export const templateMap = {
   newfolder: {
     key: FEATURES.NEW_FOLDER,
     title: ({t}) => t('New Folder'),
