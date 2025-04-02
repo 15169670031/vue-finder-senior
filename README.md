@@ -1,14 +1,18 @@
-## Vuefinder File Manager
+## vue-finder-senior File Manager
+## vue-finder-senior 文件管理器
 
 [![GitHub](https://img.shields.io/github/license/n1crack/vuefinder)](https://github.com/n1crack/vuefinder/blob/master/LICENSE) 
 [![npm](https://img.shields.io/npm/v/vuefinder)](https://www.npmjs.com/package/vuefinder)
 
 
 ### About
-Vuefinder is a file manager component for Vue.js version 3
+Vuefinder is a file manager component for Vue.js version 3.
+
+vue-finder-senior 是Vue.js版本3的文件管理器组件，是在[Vuefinder](https://github.com/n1crack/vuefinder) 的基础上进行修改，新增更多按键自定义等功能。
+
 
 ### Demo
-[Live Demo](https://vuefinder.ozdemir.be/) [ [Source](https://github.com/n1crack/vuefinder.ozdemir.be) ]
+[Live Demo](https://vuefinder.ozdemir.be/) [ [Source](https://github.com/n1crack/vuefinder) ]
 
 ### Installation
 
