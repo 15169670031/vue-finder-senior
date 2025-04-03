@@ -1,7 +1,7 @@
 {
-  "name": "vuefinder",
-  "version": "2.7.1",
-  "description": "Vuefinder is a file manager component for vuejs.",
+  "name": "vue-finder-senior",
+  "version": "2.7.2",
+  "description": "VueFinderSenior is a file manager component for vue3. And there are multiple adaptable backends available . like Python PHP  Go Rust",
   "type": "module",
   "files": [
     "dist"
@@ -13,21 +13,28 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "homepage": "https://github.com/n1crack/vuefinder#readme",
+  "homepage": "https://github.com/15169670031/vue-finder-senior",
   "keywords": [
     "vue",
+    "vue-finder-senior",
+    "vueFinderSenior",
     "file manager",
     "file plugin",
     "file explorer",
-    "finder"
+    "finder",
+    "vue3文件管理",
+    "资源管理",
+    "文件管理",
+    "文件插件",
+    "文件管理器"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/n1crack/vuefinder.git"
+    "url": "https://github.com/15169670031/vue-finder-senior.git"
   },
   "author": {
-    "name": "Yusuf Özdemir",
-    "mail": "yusuf@ozdemir.be"
+    "name": "yiwen",
+    "mail": "1620871636@qq.com"
   },
   "license": "MIT",
   "devDependencies": {

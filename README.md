@@ -18,7 +18,7 @@ vue-finder-senior 是Vue.js版本3的文件管理器组件，是在[Vuefinder](h
 
 
 ```bash
-npm i vuefinder
+npm i vue-finder-senior
 ```
 
 JS entry point (it can be index.js or main.js)
@@ -117,13 +117,14 @@ To customize or update the styles, simply find the appropriate BEM class in the 
 | theme             |    string     | system     | optional - default theme, options: "system","light","dark"  |
 | max-file-size     |    string     | 10mb       | optional - client side max file upload                      |
 | max-height        |    string     | 600px      | optional - max height of the component                      |
+| menu              |     array     | []         | optional - customize right click menu(自定义右键菜单)                     |
 | features          |     array     | _null_     | optional - array of the enabled features                    |
 | path              |    string     | _null_     | optional - initial directory, example: 'media://public'     |
 | persist           |    boolean    | false      | optional - keep current directory on page refresh           |
 | full-screen       |    boolean    | false      | optional - start in full screen mode                        |
 | select-button     |    object     | _object_   | optional - adds select button in status bar, see example    |
 | loading-indicator |    string     | circular   | optional - style of loading indicator: "circular", "linear" |
-| onError           |    function   | _function_ | optional - a callback to implement custom error handling   |
+| onError           |   function    | _function_ | optional - a callback to implement custom error handling    |
 
 
 ### Events
@@ -190,6 +191,30 @@ Alternatively, you can use the select event to get the selected items.
   }
 </script>
 ```
+Customize right-click menu.
+```vue
+<vue-finder
+  id='my_vuefinder'
+  :request="request"
+  :menu="menu"
+/>
+
+<script setup>
+  // other codes
+  
+  const menu = [
+    {
+      index: 2,  // position (菜单位置 越大越往下)
+      label: "设置为数据集", // 显示名称，如果需要使用多语言，需要显示英文，然后到对应的语言包(例如zhCN.js)添加对应关系
+      show: (app, option) => true, // 右键时是否展示 返回值为true/false
+      handler: (app, option) => {console.log("设置为数据集", app, option)} // 菜单点击后方法回调
+    }
+  ]
+  
+</script>
+
+```
+
 
 ### Features 
 - Multi adapter/storage (see https://github.com/thephpleague/flysystem)
