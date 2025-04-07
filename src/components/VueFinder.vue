@@ -1,13 +1,12 @@
 <template>
   <div class="vuefinder" ref="root" tabindex="0">
-    <div :class="app.theme.actualValue">
+    <div :class="app.theme.actualValue" style="height: 100%;">
       <div
         :class="app.fullScreen ? 'vuefinder__main__fixed' : 'vuefinder__main__relative'"
-        :style="!app.fullScreen ? 'max-height: ' + maxHeight : ''"
+        :style="'height: 100%;'+(!app.fullScreen ? 'max-height: ' + maxHeight : '')"
         class="vuefinder__main__container"
         @mousedown="app.emitter.emit('vf-contextmenu-hide')"
-        @touchstart="app.emitter.emit('vf-contextmenu-hide')"
-      >
+        @touchstart="app.emitter.emit('vf-contextmenu-hide')">
         <Toolbar/>
         <Breadcrumb/>
         <div class="vuefinder__main__content">
