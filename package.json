@@ -1,6 +1,6 @@
 {
   "name": "vue-finder-senior",
-  "version": "2.7.2",
+  "version": "2.7.3",
   "description": "VueFinderSenior is a file manager component for vue3. And there are multiple adaptable backends available . like Python PHP  Go Rust",
   "type": "module",
   "files": [
