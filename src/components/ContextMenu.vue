@@ -18,6 +18,7 @@
 </template>
 
 <script setup>
+/* 右键菜单 */
 import { inject, nextTick, reactive, ref} from 'vue';
 
 const app = inject('ServiceContainer');
@@ -80,6 +81,7 @@ app.emitter.on('vf-contextmenu-show', ({event, items, target = null}) => {
     app.emitter.emit('vf-context-selected', [target]);
     // console.log(target.type + ' is selected');
   }
+  // 显示菜单
   showContextMenu(event)
 })
 
@@ -97,6 +99,7 @@ const showContextMenu = (event) => {
 
   context.active = true;
   // wait for the next tick to get the actual size of the context menu
+  // 等待下一个勾号以获取上下文菜单的实际大小
   nextTick(() => {
     // get the actual size of the context menu
     const menuContainer = contextmenu.value?.getBoundingClientRect();

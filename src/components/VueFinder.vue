@@ -136,8 +136,18 @@ const props = defineProps({
   },
 });
 
+const localContextMenuItems = ref([...props.contextMenuItems]);
+
 // 将自定义点击按钮添加
 props.menu.forEach( r => {
+  const existingIndex = props.contextMenuItems.findIndex(item => {
+    return item.options?.feature === r.label;
+  });
+  // if (alreadyExists) return;
+  // 如果已存在，则删除该项
+  if (existingIndex !== -1) {
+    props.contextMenuItems.splice(existingIndex, 1);
+  }
   let bundle = itemBundle([{
     key: r.label,
     title: ({t}) => {
